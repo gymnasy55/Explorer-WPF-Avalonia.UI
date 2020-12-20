@@ -17,7 +17,7 @@ namespace Explorer.Avalonia.UI.Views
 #if DEBUG
             this.AttachDevTools();
 #endif
-            _mainVm = new MainViewModel(;
+            _mainVm = new MainViewModel();
             DataContext = _mainVm;
         }
 

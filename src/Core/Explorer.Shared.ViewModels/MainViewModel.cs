@@ -19,7 +19,8 @@ namespace Explorer.Shared.ViewModels
         #region Commands
 
         public DelegateCommand AddTabItemCommand { get; }
-        
+
+        public DelegateCommand CloseCommand { get; }
         #endregion
 
         #region Events
@@ -31,6 +32,7 @@ namespace Explorer.Shared.ViewModels
         public MainViewModel()
         {
             AddTabItemCommand = new DelegateCommand(OnAddTabItem);
+            CloseCommand = new DelegateCommand(OnClose);
             AddTabItemViewModel();
         }
 
@@ -52,6 +54,12 @@ namespace Explorer.Shared.ViewModels
             AddTabItemViewModel();
         }
 
+        private void OnClose(object obj)
+        {
+            if (obj is DirectoryTabItemViewModel directoryTabItemViewModel)
+                CloseTab(directoryTabItemViewModel);
+        }
+
         #endregion
 
         #region Private Methods
@@ -59,22 +67,12 @@ namespace Explorer.Shared.ViewModels
         private void AddTabItemViewModel()
         {
             var vm = new DirectoryTabItemViewModel();
-            vm.Closed += Vm_Closed;
             DirectoryTabItems.Add(vm);
             CurrentDirectoryTabItem = vm;
         }
 
-        private void Vm_Closed(object sender, System.EventArgs e)
-        {
-            if (sender is DirectoryTabItemViewModel directoryTabItemViewModel)
-            {
-                CloseTab(directoryTabItemViewModel);
-            }
-        }
-
         private void CloseTab(DirectoryTabItemViewModel directoryTabItemViewModel)
         {
-            directoryTabItemViewModel.Closed -= Vm_Closed;
             DirectoryTabItems.Remove(directoryTabItemViewModel);
             CurrentDirectoryTabItem = DirectoryTabItems.FirstOrDefault();
         }
