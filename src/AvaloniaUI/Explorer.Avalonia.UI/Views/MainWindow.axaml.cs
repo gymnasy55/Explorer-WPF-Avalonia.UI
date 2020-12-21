@@ -40,12 +40,12 @@ namespace Explorer.Avalonia.UI.Views
             if (WindowState == WindowState.Normal)
             {
                 WindowState = WindowState.Maximized;
-                ((Button)sender).Content = "🗗";
+                ((Button)sender).Content = "P";
             }
             else if (WindowState == WindowState.Maximized)
             {
                 WindowState = WindowState.Normal;
-                ((Button)sender).Content = "🗖";
+                ((Button)sender).Content = "P";
             }
         }
 
