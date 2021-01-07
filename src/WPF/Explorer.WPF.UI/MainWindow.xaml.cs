@@ -23,16 +23,12 @@ namespace Explorer.WPF.UI
 
         private void ExpandButton_OnClick(object sender, RoutedEventArgs e)
         {
-            if (WindowState == WindowState.Normal)
+            WindowState = WindowState switch
             {
-                WindowState = WindowState.Maximized;
-                ((Button) sender).Content = "🗗";
-            }
-            else if (WindowState == WindowState.Maximized)
-            {
-                WindowState = WindowState.Normal;
-                ((Button)sender).Content = "🗖";
-            }
+                WindowState.Normal => WindowState.Maximized,
+                WindowState.Maximized => WindowState.Normal,
+                _ => WindowState
+            };
         }
 
         private void CollapseButton_OnClick(object sender, RoutedEventArgs e)
