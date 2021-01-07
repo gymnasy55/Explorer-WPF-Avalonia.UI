@@ -5,24 +5,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="clr-namespace:Explorer.WPF.UI"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        x:Name="Window"
+
         WindowStyle="None"
-        ResizeMode="CanResizeWithGrip"
-        x:Name="Window">
+        AllowsTransparency="True"
+        WindowState="Maximized"
+        MinWidth="500"
+        MinHeight="120"
+        Width="1024"
+        Height="720">
     <Window.Resources>
         <Style TargetType="{x:Type Window}"
                x:Key="MainWindowStyle">
             <Setter Property="WindowChrome.WindowChrome">
                 <Setter.Value>
                     <WindowChrome CaptionHeight="{Binding WindowState, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Converter={ui:WindowTitleHeightConverter}}" 
-                                  ResizeBorderThickness="1"/>
+                                  ResizeBorderThickness="{Binding WindowState, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Converter={ui:WindowBorderThicknessConverter}, ConverterParameter=3}"
+                                  CornerRadius="0"
+                                  GlassFrameThickness="0"/>
                 </Setter.Value>
             </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
-                        <Border Background="Black">
+                        <Border Background="Black" 
+                                Padding="{TemplateBinding Padding}"
+                                BorderBrush="#84807F"
+                                BorderThickness="{Binding WindowState, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Converter={ui:WindowBorderThicknessConverter}}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <!--TitleBar-->
@@ -418,10 +430,10 @@
                                                     </Setter>
                                                 </Style>
                                             </Button.Style>
-                                            <!--<Canvas Width="24" Height="24">
+                                            <Canvas Width="24" Height="24">
                                                 <Path Fill="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}}"
                                                       Data="M4,4H20V20H4V4M6,8V18H18V8H6Z" />
-                                            </Canvas>-->
+                                            </Canvas>
                                         </Button>
                                         <Button Width="44"
                                                 Height="28"
@@ -577,4 +589,8 @@
             </Setter>
         </Style>
     </Window.Resources>
+
+    <b:Interaction.Behaviors>
+        <ui:WindowResizeFixerBehavior />
+    </b:Interaction.Behaviors>
 </Window>
