@@ -5,7 +5,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using Microsoft.Xaml.Behaviors;
 
-namespace Explorer.WPF.UI
+namespace polcraz.GoogleChromeWindow
 {
     internal class WindowResizeFixerBehavior : Behavior<Window>
     {

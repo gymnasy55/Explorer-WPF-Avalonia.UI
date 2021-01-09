@@ -8,10 +8,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
+    <ProjectReference Include="..\Controls\polcraz.GoogleChromeWindow\polcraz.GoogleChromeWindow.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\folder_background.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AttachedProperties\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
 
 </Project>

@@ -4,9 +4,9 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Explorer.WPF.UI
+namespace polcraz.GoogleChromeWindow
 {
-    internal class WindowTitleHeightConverter : MarkupExtension, IValueConverter
+    internal class WindowBorderThicknessConverter : MarkupExtension, IValueConverter
     {
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
@@ -15,9 +15,14 @@ namespace Explorer.WPF.UI
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            double length = 1;
+            if (parameter is string stringLength)
+                double.TryParse(stringLength, out length);
             if (value is WindowState windowState)
-                return windowState == WindowState.Normal ? 42 : 32; 
-            return 42;
+                return windowState == WindowState.Normal 
+                    ? new Thickness(length)
+                    : new Thickness(0);
+            return new Thickness(0);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

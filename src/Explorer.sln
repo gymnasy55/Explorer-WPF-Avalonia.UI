@@ -9,11 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{2FAEE24E-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{88175B71-C0C7-43AE-BD4A-24B2FE20011F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explorer.Avalonia.UI", "AvaloniaUI\Explorer.Avalonia.UI\Explorer.Avalonia.UI.csproj", "{88F933B6-E8DA-4022-973A-A867555DA1ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.Avalonia.UI", "AvaloniaUI\Explorer.Avalonia.UI\Explorer.Avalonia.UI.csproj", "{88F933B6-E8DA-4022-973A-A867555DA1ED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0A5E986F-0726-4ECD-B4A9-086312C37F88} = {0A5E986F-0726-4ECD-B4A9-086312C37F88}
+		{14A83979-0EB5-493F-BDFC-20A50B33443D} = {14A83979-0EB5-493F-BDFC-20A50B33443D}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explorer.WPF.UI", "WPF\Explorer.WPF.UI\Explorer.WPF.UI.csproj", "{14A83979-0EB5-493F-BDFC-20A50B33443D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.WPF.UI", "WPF\Explorer.WPF.UI\Explorer.WPF.UI.csproj", "{14A83979-0EB5-493F-BDFC-20A50B33443D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explorer.Shared.ViewModels", "Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj", "{1A800FCE-FD48-48F0-83D2-EC1119127E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.Shared.ViewModels", "Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj", "{1A800FCE-FD48-48F0-83D2-EC1119127E68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{A7C404B0-87FB-4FCB-AD92-D9F4F1FF6BCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "polcraz.GoogleChromeWindow", "WPF\Controls\polcraz.GoogleChromeWindow\polcraz.GoogleChromeWindow.csproj", "{0A5E986F-0726-4ECD-B4A9-086312C37F88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,10 @@ Global
 		{1A800FCE-FD48-48F0-83D2-EC1119127E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A800FCE-FD48-48F0-83D2-EC1119127E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A800FCE-FD48-48F0-83D2-EC1119127E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A5E986F-0726-4ECD-B4A9-086312C37F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A5E986F-0726-4ECD-B4A9-086312C37F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A5E986F-0726-4ECD-B4A9-086312C37F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A5E986F-0726-4ECD-B4A9-086312C37F88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +53,8 @@ Global
 		{88F933B6-E8DA-4022-973A-A867555DA1ED} = {912798F5-2117-4DEE-B0C6-9CBCABDF6163}
 		{14A83979-0EB5-493F-BDFC-20A50B33443D} = {88175B71-C0C7-43AE-BD4A-24B2FE20011F}
 		{1A800FCE-FD48-48F0-83D2-EC1119127E68} = {2FAEE24E-1F4D-4ECA-9A80-2BC69F684A18}
+		{A7C404B0-87FB-4FCB-AD92-D9F4F1FF6BCE} = {88175B71-C0C7-43AE-BD4A-24B2FE20011F}
+		{0A5E986F-0726-4ECD-B4A9-086312C37F88} = {A7C404B0-87FB-4FCB-AD92-D9F4F1FF6BCE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79780EEC-3541-49E7-80A4-0D64851C5109}
