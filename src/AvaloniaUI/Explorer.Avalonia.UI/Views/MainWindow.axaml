@@ -1,137 +1,72 @@
-﻿<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="clr-namespace:Explorer.Avalonia.UI.ViewModels;assembly=Explorer.Avalonia.UI"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Explorer.Avalonia.UI.Views.MainWindow"
-        xmlns:local="clr-namespace:Explorer.Avalonia.UI;assembly=Explorer.Avalonia.UI"
-        Icon="/Assets/avalonia-logo.ico"
-        WindowStartupLocation="CenterScreen"
-        HasSystemDecorations="False"
-        Name="Window">
-  <Window.Styles>
-    <Style Selector="Window">
-      <Setter Property="Template">
-        <ControlTemplate>
-          <Border Background="Black">
-            <Grid>
-              <Grid.RowDefinitions>
-                <!--TitleBar-->
-                <RowDefinition Height="40" />
-                <!--SearchTextBox-->
-                <RowDefinition Height="40" />
-                <!--BookMarks-->
-                <RowDefinition Height="36" />
-                <!--TabItemContent-->
-                <RowDefinition Height="*" />
-              </Grid.RowDefinitions>
-              <!--TitleBar-->
-              <Grid>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="Auto" />
-                  <ColumnDefinition Width="Auto" />
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <ListBox Items="{Binding DirectoryTabItems}"
-                         SelectedItem="{Binding CurrentDirectoryTabItem}">
-                  <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                      <StackPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                  </ListBox.ItemsPanel>
-                  <ListBox.ItemTemplate>
-                    <DataTemplate>
-                      <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" />
-                        <Button Command="{Binding DataContext.CloseCommand, ElementName=Window}"
-                                CommandParameter="{Binding}"
-                                Width="{Binding $self.Bounds.Height}">X</Button>
-                      </StackPanel>
-                    </DataTemplate>
-                  </ListBox.ItemTemplate>
-                </ListBox>
-                <Button Grid.Column="1"
-                        Margin="2"
-                        Command="{Binding AddTabItemCommand}"
-                        Content="+"
-                        Width="{Binding $self.Bounds.Height}" />
-                <StackPanel Grid.Column="2"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            Orientation="Horizontal">
-                  <Button Classes="SystemWindowButton"
-                          Click="CollapseButton_OnClick">
-                    <Canvas Width="24" Height="24">
-                      <Path Fill="{Binding $parent[Button].Foreground}"
-                            Data="M20,14H4V10H20" />
-                    </Canvas>
-                  </Button>
-                  <Button Width="44"
-                          Height="28"
-                          Click="ExpandButton_OnClick">
-                    P
-                  </Button>
-                  <Button Classes="SystemWindowButton MainCloseButtonStyle"
-                          Click="CloseButton_OnClick">
-                    <Canvas Width="24" Height="24">
-                      <Path Fill="{Binding $parent[Button].Foreground}"
-                            Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
-                    </Canvas>
-                  </Button>
-                </StackPanel>
-              </Grid>
-              <!--SearchTextBox-->
-              <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="Auto"/>
-                  <ColumnDefinition Width="Auto"/>
-                  <ColumnDefinition Width="Auto"/>
-                  <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0"
-                        Content="&lt;-"
-                        Margin="2"
-                        Command="{Binding CurrentDirectoryTabItem.MoveBackCommand}"
-                        Width="{Binding $self.Bounds.Height}" />
-                <Button Grid.Column="1"
-                        Content="-&gt;"
-                        Margin="2"
-                        Command="{Binding CurrentDirectoryTabItem.MoveForwardCommand}"
-                        Width="{Binding $self.Bounds.Height}" />
-                <Button Grid.Column="2"
-                        Content="o"
-                        Margin="2"
-                        Width="{Binding $self.Bounds.Height}" />
-                <TextBox Grid.Column="3"
-                         VerticalAlignment="Center"
-                         FontSize="16"
-                         Text="{Binding CurrentDirectoryTabItem.FilePath}" />
-              </Grid>
-              <StackPanel Grid.Row="2"
-                          Background="#FF353535">
-                <Menu>
-                  <MenuItem Header="Games" />
-                </Menu>
-              </StackPanel>
-              <ContentControl Grid.Row="3"
-                              Content="{Binding CurrentDirectoryTabItem}">
-                <ContentControl.ContentTemplate>
-                  <DataTemplate>
-                    <local:DirectoryTabItem>
-                      <local:DirectoryTabItem.Background>
-                        <ImageBrush Source="avares://Explorer.Avalonia.UI/Assets/folder_background.jpg" 
-                                    Stretch="None"/>
-                      </local:DirectoryTabItem.Background>
-                    </local:DirectoryTabItem>
-                  </DataTemplate>
-                </ContentControl.ContentTemplate>
-              </ContentControl>
-            </Grid>
-          </Border>
-        </ControlTemplate>
-      </Setter>
-    </Style>
-  </Window.Styles>
-</Window>
+﻿<polcraz:GoogleChromeWindow xmlns="https://github.com/avaloniaui"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:polcraz="clr-namespace:Polcraz.GoogleChromeWindow.AvaloniaUI;assembly=Polcraz.GoogleChromeWindow.AvaloniaUI"
+                            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                            x:Class="Explorer.Avalonia.UI.Views.MainWindow"
+                            xmlns:local="clr-namespace:Explorer.Avalonia.UI;assembly=Explorer.Avalonia.UI"
+                            Icon="/Assets/avalonia-logo.ico">
+
+  <polcraz:GoogleChromeWindow.ToolBarContent>
+    <Grid>
+      <Grid.RowDefinitions>
+
+        <!--SearchTextBox-->
+        <RowDefinition Height="40" />
+
+        <!--BookMarks-->
+        <RowDefinition Height="36" />
+
+      </Grid.RowDefinitions>
+
+      <!--SearchTextBox-->
+
+      <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0"
+                Content="&lt;-"
+                Margin="2"
+                Command="{Binding CurrentDirectoryTabItem.MoveBackCommand}"
+                Width="{Binding $self.Bounds.Height}" />
+        <Button Grid.Column="1"
+                Content="-&gt;"
+                Margin="2"
+                Command="{Binding CurrentDirectoryTabItem.MoveForwardCommand}"
+                Width="{Binding $self.Bounds.Height}" />
+        <Button Grid.Column="2"
+                Content="o"
+                Margin="2"
+                Width="{Binding $self.Bounds.Height}" />
+        <TextBox Grid.Column="3"
+                 VerticalAlignment="Center"
+                 FontSize="16"
+                 Text="{Binding CurrentDirectoryTabItem.FilePath}" />
+      </Grid>
+      <StackPanel Grid.Row="1"
+                  Background="#FF353535">
+        <Menu>
+          <MenuItem Header="Games" />
+        </Menu>
+      </StackPanel>
+    </Grid>
+  </polcraz:GoogleChromeWindow.ToolBarContent>
+
+  <ContentControl Content="{Binding CurrentDirectoryTabItem}">
+    <ContentControl.ContentTemplate>
+      <DataTemplate>
+        <local:DirectoryTabItem>
+          <local:DirectoryTabItem.Background>
+            <ImageBrush Source="avares://Explorer.Avalonia.UI/Assets/folder_background.jpg"
+                        Stretch="None" />
+          </local:DirectoryTabItem.Background>
+        </local:DirectoryTabItem>
+      </DataTemplate>
+    </ContentControl.ContentTemplate>
+  </ContentControl>
+</polcraz:GoogleChromeWindow>

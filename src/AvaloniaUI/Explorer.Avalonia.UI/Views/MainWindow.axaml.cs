@@ -4,10 +4,11 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Explorer.Shared.ViewModels;
+using Polcraz.GoogleChromeWindow.AvaloniaUI;
 
 namespace Explorer.Avalonia.UI.Views
 {
-    public class MainWindow : Window
+    public class MainWindow : GoogleChromeWindow
     {
         private readonly MainViewModel _mainVm;
 

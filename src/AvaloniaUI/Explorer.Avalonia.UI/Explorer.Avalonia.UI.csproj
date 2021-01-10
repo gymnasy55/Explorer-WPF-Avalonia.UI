@@ -33,5 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
+    <ProjectReference Include="..\Controls\Polcraz.GoogleChromeWindow.AvaloniaUI\Polcraz.GoogleChromeWindow.AvaloniaUI.csproj" />
   </ItemGroup>
 </Project>

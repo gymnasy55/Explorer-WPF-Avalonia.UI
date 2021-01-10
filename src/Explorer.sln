@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{A7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "polcraz.GoogleChromeWindow", "WPF\Controls\polcraz.GoogleChromeWindow\polcraz.GoogleChromeWindow.csproj", "{0A5E986F-0726-4ECD-B4A9-086312C37F88}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{1B74066F-F1B8-4DC4-B69B-ED2D9F655477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polcraz.GoogleChromeWindow.AvaloniaUI", "AvaloniaUI\Controls\Polcraz.GoogleChromeWindow.AvaloniaUI\Polcraz.GoogleChromeWindow.AvaloniaUI.csproj", "{F6FF33DB-3449-4454-89E6-0151B8176AC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,10 @@ Global
 		{0A5E986F-0726-4ECD-B4A9-086312C37F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A5E986F-0726-4ECD-B4A9-086312C37F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A5E986F-0726-4ECD-B4A9-086312C37F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6FF33DB-3449-4454-89E6-0151B8176AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6FF33DB-3449-4454-89E6-0151B8176AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6FF33DB-3449-4454-89E6-0151B8176AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6FF33DB-3449-4454-89E6-0151B8176AC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,8 @@ Global
 		{1A800FCE-FD48-48F0-83D2-EC1119127E68} = {2FAEE24E-1F4D-4ECA-9A80-2BC69F684A18}
 		{A7C404B0-87FB-4FCB-AD92-D9F4F1FF6BCE} = {88175B71-C0C7-43AE-BD4A-24B2FE20011F}
 		{0A5E986F-0726-4ECD-B4A9-086312C37F88} = {A7C404B0-87FB-4FCB-AD92-D9F4F1FF6BCE}
+		{1B74066F-F1B8-4DC4-B69B-ED2D9F655477} = {912798F5-2117-4DEE-B0C6-9CBCABDF6163}
+		{F6FF33DB-3449-4454-89E6-0151B8176AC3} = {1B74066F-F1B8-4DC4-B69B-ED2D9F655477}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79780EEC-3541-49E7-80A4-0D64851C5109}
