@@ -4,7 +4,7 @@
         xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
         xmlns:local="clr-namespace:Polcraz.GoogleChromeWindow.AvaloniaUI;assembly=Polcraz.GoogleChromeWindow.AvaloniaUI">
 
-  <Style Selector="Window">
+  <Style Selector="local|GoogleChromeWindow">
     <Setter Property="WindowStartupLocation" Value="CenterScreen" />
     <Setter Property="HasSystemDecorations" Value="False" />
     <Setter Property="Template">
@@ -26,13 +26,24 @@
             
             <!--#region TitleBar-->
             
-            <Grid Name="TitleBarGrid">
+            <Grid>
+              <Grid.Styles>
+                <Style Selector="Button">
+                  <Setter Property="Background" Value="Transparent" />
+                  <Setter Property="BorderBrush" Value="Transparent" />
+                  <Setter Property="BorderThickness" Value="0" />
+                  <Setter Property="HorizontalContentAlignment" Value="Center" />
+                  <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+              </Grid.Styles>
+              
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
               </Grid.ColumnDefinitions>
+              
               <ListBox Items="{Binding DirectoryTabItems}"
                        SelectedItem="{Binding CurrentDirectoryTabItem}">
                 <ListBox.ItemsPanel>
@@ -60,30 +71,102 @@
                           HorizontalAlignment="Right"
                           VerticalAlignment="Top"
                           Orientation="Horizontal">
-                <Button Classes="SystemWindowButton">
-                  <Canvas Width="24" Height="24">
+                <StackPanel.Styles>
+                  <Style Selector="Button">
+                    <Setter Property="Width" Value="44" />
+                    <Setter Property="Height" Value="28" />
+                  </Style>
+                  
+                  <Style Selector="Button:pointerover">
+                    <Setter Property="Background" Value="#1A1A1A" />
+                  </Style>
+
+                  <Style Selector="Button:pressed /template/ ContentPresenter">
+                    <Setter Property="Background" Value="#333333" />
+                  </Style>
+
+                  <Style Selector="local|GoogleChromeWindow[IsActive=false] Button">
+                    <Setter Property="Foreground" Value="#666666" />
+                  </Style>
+
+                  <Style Selector="local|GoogleChromeWindow[IsActive=false] Button:pointerover">
+                    <Setter Property="Foreground" Value="#B8B8B8" />
+                  </Style>
+                </StackPanel.Styles>
+                
+                <Button Command="{TemplateBinding CollapseCommand}"
+                        ToolTip.Tip="Свернуть">
+                  <Viewbox Width="12" Height="12"
+                           Stretch="Uniform"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center">
                     <Path Fill="{Binding $parent[Button].Foreground}"
                           Data="M20,14H4V10H20" />
-                  </Canvas>
+                  </Viewbox>
                 </Button>
-                <Button Width="44"
-                        Height="28">
-                  P
+                
+                <Button Command="{TemplateBinding ExpandCommand}">
+                  <Button.Styles>
+                    <Style Selector="local|GoogleChromeWindow[WindowState=Normal] Button">
+                      <Setter Property="ToolTip.Tip" Value="Развернуть" />
+                      <Setter Property="Content">
+                        <Template>
+                          <Viewbox Width="12" Height="12"
+                                   Stretch="Uniform"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center">
+                            <Path Fill="{Binding $parent[Button].Foreground}"
+                                  Data="M4,4H20V20H4V4M6,8V18H18V8H6Z" />
+                          </Viewbox>
+                        </Template>
+                      </Setter>
+                    </Style>
+
+                    <Style Selector="local|GoogleChromeWindow[WindowState=Maximized] Button">
+                      <Setter Property="ToolTip.Tip" Value="Восстановить" />
+                      <Setter Property="Content">
+                        <Template>
+                          <Viewbox Width="12" Height="12"
+                                   Stretch="Uniform"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center">
+                            <Path Fill="{Binding $parent[Button].Foreground}"
+                                  Data="M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z" />
+                          </Viewbox>
+                        </Template>
+                      </Setter>
+                    </Style>
+                  </Button.Styles>
                 </Button>
-                <Button Classes="SystemWindowButton MainCloseButtonStyle">
-                  <Canvas Width="24" Height="24">
+                
+                <Button Command="{TemplateBinding CloseCommand}"
+                        ToolTip.Tip="Закрыть">
+                  <Button.Styles>
+                    <Style Selector="Button:pointerover">
+                      <Setter Property="Background" Value="#E81123" />
+                    </Style>
+
+                    <Style Selector="Button:pressed /template/ ContentPresenter">
+                      <Setter Property="Background" Value="#8A0A14" />
+                    </Style>
+                  </Button.Styles>
+                  <Viewbox Width="12" Height="12"
+                          Stretch="Uniform"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center">
                     <Path Fill="{Binding $parent[Button].Foreground}"
                           Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" />
-                  </Canvas>
+                  </Viewbox>
                 </Button>
+                
               </StackPanel>
             </Grid>
             
             <!--#endregion-->
 
-            <!--<ContentControl Grid.Row="1"
+            <ContentControl Grid.Row="1"
                             Content="{TemplateBinding ToolBarContent}" />
-            -->
+            
             
             
             <ContentPresenter Grid.Row="3" 
@@ -94,14 +177,6 @@
         </Border>
       </ControlTemplate>
     </Setter>
-  </Style>
-
-  <Style Selector="Window /template/ #TitleBarGrid Button">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="VerticalContentAlignment" Value="Center" />
   </Style>
   
   <!--

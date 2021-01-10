@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace polcraz.GoogleChromeWindow
@@ -72,16 +71,6 @@ namespace polcraz.GoogleChromeWindow
 
             var behaviour = new WindowResizeFixerBehavior();
             behaviour.Attach(this);
-        }
-
-        #endregion
-
-        #region Protected Methods
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            base.OnClosing(e);
-            Application.Current.Shutdown();
         }
 
         #endregion
