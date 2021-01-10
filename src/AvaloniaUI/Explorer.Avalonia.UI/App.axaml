@@ -6,12 +6,11 @@
   <Application.Styles>
       <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml"/>
       <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseDark.xaml"/>
+      <StyleInclude Source="avares://Explorer.Avalonia.UI/Themes/Buttons.axaml"/>
   </Application.Styles>
   
   <Application.Resources>
     <!--ClipGeometry="M0,0 V58 H58 V0 H0 Z"-->
-
-
     <DrawingGroup x:Key="FolderIconImage">
       <GeometryDrawing Brush="#FFEFCE4A" Geometry="F1 M58,58z M0,0z M55.981,54.5L2.019,54.5C0.904,54.5,0,53.596,0,52.481L0,20.5 58,20.5 58,52.481C58,53.596,57.096,54.5,55.981,54.5z" />
       <GeometryDrawing Brush="#FFEBBA16" Geometry="F1 M58,58z M0,0z M26.019,11.5L26.019,5.519C26.019,4.404,25.115,3.5,24,3.5L2.019,3.5C0.904,3.5,0,4.404,0,5.519L0,10.5 0,20.5 58,20.5 58,13.519C58,12.404,57.096,11.5,55.981,11.5L26.019,11.5z" />
