@@ -8,7 +8,5 @@ namespace Polcraz.GoogleChromeWindow.AvaloniaUI
     public class ChromeTabsControl : ListBox, IStyleable
     {
         Type IStyleable.StyleKey => typeof(ChromeTabsControl);
-
-
     }
 }

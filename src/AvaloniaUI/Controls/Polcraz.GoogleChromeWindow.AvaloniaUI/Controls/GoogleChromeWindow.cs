@@ -2,12 +2,23 @@
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Input;
 using Avalonia.Styling;
 
 namespace Polcraz.GoogleChromeWindow.AvaloniaUI
 {
+    #nullable enable
     public class GoogleChromeWindow : Window, IStyleable
     {
+        #region Private Fields
+
+        private const string PartTitleBar = "PART_TitleBar";
+
+        private Grid? _titleBar;
+
+        #endregion
+
         #region IStyleable
 
         Type IStyleable.StyleKey => typeof(GoogleChromeWindow);
@@ -71,6 +82,27 @@ namespace Polcraz.GoogleChromeWindow.AvaloniaUI
             ExpandCommand = new DelegateCommand(OnExpand);
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+
+        #endregion
+
+        #region Protected Methods
+
+        protected override void OnTemplateApplied(TemplateAppliedEventArgs e)
+        {
+            base.OnTemplateApplied(e);
+
+            _titleBar = e.NameScope.Get<Grid>(PartTitleBar);
+        }
+
+        protected override void OnPointerPressed(PointerPressedEventArgs e)
+        {
+            base.OnPointerPressed(e);
+
+            if (Equals(e.Source, _titleBar))
+            {
+                BeginMoveDrag(e);
+            }
         }
 
         #endregion

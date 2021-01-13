@@ -8,7 +8,7 @@
     <Optimize>false</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>C:\Users\polcr\source\repos\Ilya\wpf\Explorer\src\AvaloniaUI\Controls\Polcraz.GoogleChromeWindow.AvaloniaUI\Polcraz.GoogleChromeWindow.AvaloniaUI.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="**\*.axaml.cs">

@@ -61,9 +61,6 @@
                                          ItemsSource="{Binding DirectoryTabItems}"
                                          SelectedItem="{Binding CurrentDirectoryTabItem}"
                                          VerticalAlignment="Bottom"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         BorderThickness="0"
                                          Margin="0"
                                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
                                          WindowChrome.IsHitTestVisibleInChrome="True">
